@@ -1,0 +1,9 @@
+# robots.txt for Deccan Care Maternity & General Hospital
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /login/admin
+
+# Sitemap
+Sitemap: https://deccanprojectsclient.firebaseapp.com/sitemap.xml

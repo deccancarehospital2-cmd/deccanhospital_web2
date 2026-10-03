@@ -1,0 +1,81 @@
+import { GalleryItem } from '../types/gallery';
+
+export const galleryData: GalleryItem[] = [
+  {
+    id: 'gallery-1',
+    image: 'dr-md-furqan-card.jpg',
+    alt: 'Dr. Md Furqan Inamdar anaesthesia profile',
+    caption: 'Dr. Md Furqan Inamdar — Anaesthesia',
+    category: 'Doctor Profile',
+  },
+  {
+    id: 'gallery-2',
+    image: 'clinical-1.jpg',
+    alt: 'Clinical procedure at Deccan Care Hospital',
+    caption: 'Clinical procedure and patient care',
+    category: 'Clinical',
+  },
+  {
+    id: 'gallery-3',
+    image: 'clinical-2.jpg',
+    alt: 'Medical procedure with clinical team',
+    caption: 'Medical procedure with clinical team',
+    category: 'Procedure',
+  },
+  {
+    id: 'gallery-4',
+    image: 'clinical-3.jpg',
+    alt: 'Clinical wound care procedure',
+    caption: 'Clinical wound-care procedure',
+    category: 'Clinical',
+  },
+  {
+    id: 'gallery-5',
+    image: 'clinical-4.jpg',
+    alt: 'Surgical team in operating room',
+    caption: 'Surgical team in operating room',
+    category: 'Surgery',
+  },
+  {
+    id: 'gallery-6',
+    image: 'clinical-5.jpg',
+    alt: 'Surgical procedure in operating room',
+    caption: 'Surgical care',
+    category: 'Surgery',
+  },
+  {
+    id: 'gallery-7',
+    image: 'clinical-6.jpg',
+    alt: 'Post-procedure wound care',
+    caption: 'Post-procedure care',
+    category: 'Care',
+  },
+  {
+    id: 'gallery-8',
+    image: 'clinical-7.jpg',
+    alt: 'Pelvic X-ray diagnostic image',
+    caption: 'Diagnostic X-ray',
+    category: 'Diagnostics',
+  },
+  {
+    id: 'gallery-9',
+    image: 'clinical-8.jpg',
+    alt: 'Orthopaedic fluoroscopy imaging',
+    caption: 'Orthopaedic imaging',
+    category: 'Diagnostics',
+  },
+  {
+    id: 'gallery-10',
+    image: 'clinical-9.jpg',
+    alt: 'Operating room surgical team',
+    caption: 'Operating room care',
+    category: 'Surgery',
+  },
+  {
+    id: 'gallery-11',
+    image: 'clinical-10.jpg',
+    alt: 'Surgical team providing patient care',
+    caption: 'Patient care in theatre',
+    category: 'Surgery',
+  },
+];

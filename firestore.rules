@@ -1,0 +1,66 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper to check if the requesting user is an authorized admin
+    function isAdmin() {
+      return request.auth != null &&
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Doctors collection
+    match /doctors/{doctorId} {
+      // Public can read active doctors; Admins can read all
+      allow read: if resource.data.isActive == true || isAdmin();
+      // Only authenticated admins can create, edit, or delete doctor profiles
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Hospital Gallery collection
+    match /gallery/{galleryId} {
+      // Public can read active gallery photos; Admins can read all
+      allow read: if resource.data.isActive == true || isAdmin();
+      // Only authenticated admins can upload, edit, or delete gallery photos
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Doctor Availability Slots collection
+    match /slots/{slotId} {
+      // Public can read slots for booking schedules; Admins can read all
+      allow read: if true;
+      // Admins can create and delete slots
+      allow create, delete: if isAdmin();
+      // Admins can update any slot; Public can atomically reserve an available slot
+      allow update: if isAdmin() || (
+        resource.data.status == 'available' &&
+        request.resource.data.status == 'booked'
+      );
+    }
+
+    // Patient Appointments collection
+    match /appointments/{appointmentId} {
+      // Only authorized hospital administrators can read full patient appointment records
+      allow read: if isAdmin();
+      // Public users can submit new appointment requests with status 'pending'
+      allow create: if request.resource.data.status == 'pending';
+      // Only administrators can confirm, reject, cancel, complete, or delete appointments
+      allow update, delete: if isAdmin();
+    }
+
+    // Admins collection (used for authorization verification)
+    match /admins/{adminId} {
+      // Authenticated admins can read their own record and view the admin list; non-admins cannot
+      allow read: if request.auth != null && (request.auth.uid == adminId || isAdmin());
+      // Direct writes from client are disabled (managed strictly through secure serverless API)
+      allow write: if false;
+    }
+
+    // Security Audit Logs collection
+    match /admin_audit_logs/{logId} {
+      // Authorized hospital administrators can read security audit records
+      allow read: if isAdmin();
+      // Direct writes from client are disabled (written strictly through secure serverless API)
+      allow write: if false;
+    }
+  }
+}
