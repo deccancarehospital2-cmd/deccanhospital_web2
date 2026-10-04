@@ -25,10 +25,13 @@ export function usePublicGallery(): UsePublicGalleryResult {
         if (!isMounted) return;
 
         if (firestoreItems.length === 0) {
-          // Admin has intentionally deactivated all gallery items or collection is empty
-          setGalleryItems([]);
-          setIsEmpty(true);
-          setIsFallback(false);
+          // Fallback to static brochure gallery dataset
+          const activeStatic = galleryData
+            .filter((g) => g.isActive !== false)
+            .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
+          setGalleryItems(activeStatic);
+          setIsEmpty(activeStatic.length === 0);
+          setIsFallback(true);
         } else {
           // Sort by displayOrder ascending defensively
           const sorted = [...firestoreItems].sort(

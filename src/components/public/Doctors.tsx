@@ -1,10 +1,7 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { SectionHeader } from '../common/SectionHeader';
 import { DoctorCard } from './DoctorCard';
 import { usePublicDoctors } from '../../hooks/usePublicDoctors';
-import { staggerContainerVariants, fadeUpVariants } from '../../animations/variants';
-import { defaultViewport } from '../../animations/motionConfig';
 import { UserCheck } from 'lucide-react';
 
 export const Doctors: React.FC = () => {
@@ -16,7 +13,7 @@ export const Doctors: React.FC = () => {
         <SectionHeader
           eyebrow="Medical Team"
           title="Our Doctors & Patient Support Team"
-          description="Meet the doctors and patient-support professionals associated with Deccan Care Maternity & General Hospital. Doctor qualifications below are transcribed from the hospital brochure provided for this website, alongside the hospital’s patient-support and physiotherapy team."
+          description="Meet the doctors and patient-support professionals associated with Deccan Care Maternity & General Hospital, alongside the hospital’s dedicated patient-care and physiotherapy team."
         />
 
         {/* Loading Skeleton State */}
@@ -52,30 +49,12 @@ export const Doctors: React.FC = () => {
           </div>
         ) : (
           /* Active Doctors Grid */
-          <motion.div
-            variants={staggerContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={defaultViewport}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
             {doctors.map((doctor) => (
               <DoctorCard key={doctor.id} doctor={doctor} />
             ))}
-          </motion.div>
+          </div>
         )}
-
-        {/* Website Information / Verification Note */}
-        <motion.div
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
-          className="mt-8 bg-[#f3fafc] border-l-4 border-brand-blue p-4 sm:p-5 rounded-lg text-brand-muted text-xs sm:text-[13px] leading-relaxed"
-        >
-          <b className="text-brand-ink">Website information note: </b>
-          Doctor names and qualifications shown above are based on the hospital brochure supplied by the hospital. Consultation timings, registration numbers, exact roles and availability should be confirmed by the hospital before publication. Patient-support staff do not diagnose, prescribe or change medicines; medication guidance should follow the treating doctor’s prescription and instructions.
-        </motion.div>
       </div>
     </section>
   );

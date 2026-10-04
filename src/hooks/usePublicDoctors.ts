@@ -25,10 +25,13 @@ export function usePublicDoctors(): UsePublicDoctorsResult {
         if (!isMounted) return;
 
         if (firestoreDoctors.length === 0) {
-          // Admin has intentionally deactivated all records or collection is empty
-          setDoctors([]);
-          setIsEmpty(true);
-          setIsFallback(false);
+          // Fallback to static brochure dataset so doctors always display
+          const activeStatic = doctorsData
+            .filter((d) => d.isActive !== false)
+            .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
+          setDoctors(activeStatic);
+          setIsEmpty(activeStatic.length === 0);
+          setIsFallback(true);
         } else {
           // Sort by displayOrder ascending defensively
           const sorted = [...firestoreDoctors].sort(
