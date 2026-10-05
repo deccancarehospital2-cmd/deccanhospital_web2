@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { staggerContainerVariants, staggerItemVariants } from '../../animations/variants';
 import { defaultViewport } from '../../animations/motionConfig';
+import { HOSPITAL_EMAIL } from '../../utils/appointmentHelper';
 
 export const InfoCards: React.FC = () => {
   return (
@@ -71,8 +72,8 @@ export const InfoCards: React.FC = () => {
               ✉ Contact by Email
             </b>
             <span className="text-xs sm:text-sm text-brand-muted leading-relaxed block break-all">
-              <a href="mailto:deccancarehospital.24ths@gmail.com" className="hover:text-brand-blue">
-                deccancarehospital.24ths@gmail.com
+              <a href={`mailto:${HOSPITAL_EMAIL}`} className="hover:text-brand-blue">
+                {HOSPITAL_EMAIL}
               </a>
             </span>
           </div>

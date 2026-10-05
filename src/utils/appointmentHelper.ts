@@ -1,6 +1,6 @@
 import { AppointmentFormData } from '../types/appointment';
 
-export const HOSPITAL_EMAIL = 'deccancarehospital.24ths@gmail.com';
+export const HOSPITAL_EMAIL = 'deccancarehospital.24hrs@gmail.com';
 export const HOSPITAL_PHONE_PRIMARY = '+917411140480';
 export const HOSPITAL_PHONE_SECONDARY = '+918310365003';
 export const HOSPITAL_WHATSAPP_LINK = 'https://wa.me/917411140480';
