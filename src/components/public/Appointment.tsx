@@ -43,9 +43,12 @@ export const Appointment: React.FC = () => {
   const [department, setDepartment] = useState<string>('Obstetrics & Gynaecology');
   const [selectedDoctorId, setSelectedDoctorId] = useState<string>('');
   const [date, setDate] = useState<string>(() => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split('T')[0];
+    const target = new Date();
+    target.setDate(target.getDate() + 1);
+    const y = target.getFullYear();
+    const m = String(target.getMonth() + 1).padStart(2, '0');
+    const d = String(target.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
   });
   const [selectedSlot, setSelectedSlot] = useState<DoctorSlot | null>(null);
 
@@ -100,7 +103,12 @@ export const Appointment: React.FC = () => {
     setSelectedSlot(null);
     setSubmitError(null);
     try {
-      const fetchedSlots = await fetchSlotsForDoctorAndDate(selectedDoctorId, date);
+      const fetchedSlots = await fetchSlotsForDoctorAndDate(
+        selectedDoctorId,
+        date,
+        selectedDoctor?.schedule,
+        selectedDoctor?.name
+      );
       setSlots(fetchedSlots);
     } catch (err) {
       console.warn('Could not fetch slots from Firestore:', err);
@@ -108,7 +116,7 @@ export const Appointment: React.FC = () => {
     } finally {
       setIsLoadingSlots(false);
     }
-  }, [selectedDoctorId, date]);
+  }, [selectedDoctorId, date, selectedDoctor]);
 
   useEffect(() => {
     if (selectedDoctorId && date) {
@@ -195,7 +203,13 @@ export const Appointment: React.FC = () => {
     loadSlots();
   };
 
-  const todayStr = new Date().toISOString().split('T')[0];
+  const todayStr = useMemo(() => {
+    const today = new Date();
+    const y = today.getFullYear();
+    const m = String(today.getMonth() + 1).padStart(2, '0');
+    const d = String(today.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }, []);
 
   return (
     <section id="appointment" className="py-16 sm:py-20 bg-brand-lightBlue overflow-hidden">
@@ -380,10 +394,10 @@ export const Appointment: React.FC = () => {
                 <div className="p-6 bg-slate-50/80 rounded-xl text-center border border-dashed border-brand-line space-y-1">
                   <Clock className="w-6 h-6 text-brand-muted mx-auto mb-1" />
                   <p className="text-xs sm:text-sm font-bold text-brand-ink">
-                    No scheduled slots released for this date
+                    No consultation slots available for this date.
                   </p>
                   <p className="text-xs text-brand-muted max-w-md mx-auto">
-                    Dr. {selectedDoctor?.name} does not have pre-released slots on {date}. You can pick another date or call our 24/7 reception desk at 08472-222244.
+                    Dr. {selectedDoctor?.name} does not have consultation hours scheduled on {date}. Please select another date or contact our hospital front desk.
                   </p>
                 </div>
               ) : (

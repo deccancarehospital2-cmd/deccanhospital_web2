@@ -4,7 +4,7 @@ import { SectionHeader } from '../common/SectionHeader';
 import { GalleryCard } from './GalleryCard';
 import { GalleryLightbox } from './GalleryLightbox';
 import { usePublicGallery } from '../../hooks/usePublicGallery';
-import { staggerContainerVariants, fadeUpVariants } from '../../animations/variants';
+import { staggerContainerVariants } from '../../animations/variants';
 import { defaultViewport } from '../../animations/motionConfig';
 import { Image as ImageIcon } from 'lucide-react';
 
@@ -67,18 +67,6 @@ export const Gallery: React.FC = () => {
             ))}
           </motion.div>
         )}
-
-        {/* Gallery Publication Consent Note */}
-        <motion.div
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={defaultViewport}
-          className="max-w-[850px] mx-auto mt-7 bg-[#fff8ef] border-l-4 border-[#c98222] p-4 sm:p-5 rounded-lg text-[#6d5a42] text-xs sm:text-[13px] leading-relaxed"
-        >
-          <b className="text-[#51402c]">Publication note: </b>
-          These images may show patients or clinical procedures. Confirm appropriate patient consent and permission for website publication before the website goes live.
-        </motion.div>
 
         {/* Lightbox Modal with dynamic items */}
         {galleryItems.length > 0 && (

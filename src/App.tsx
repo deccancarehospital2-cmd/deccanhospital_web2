@@ -29,9 +29,6 @@ const AdminAppointments = lazy(() =>
 const AdminAvailability = lazy(() =>
   import('./pages/admin/AdminAvailability').then((module) => ({ default: module.AdminAvailability }))
 );
-const AdminManagement = lazy(() =>
-  import('./pages/admin/AdminManagement').then((module) => ({ default: module.AdminManagement }))
-);
 
 export const App: React.FC = () => {
   return (
@@ -68,18 +65,6 @@ export const App: React.FC = () => {
                 <Route path="availability" element={<AdminAvailability />} />
                 <Route path="doctors" element={<AdminDoctors />} />
                 <Route path="gallery" element={<AdminGallery />} />
-                <Route
-                  path="admins"
-                  element={
-                    <ProtectedRoute requireSuperAdmin={true}>
-                      <AdminManagement />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="management"
-                  element={<Navigate to="/admin/admins" replace />}
-                />
               </Route>
 
               {/* Catch-all fallback */}

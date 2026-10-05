@@ -1,4 +1,4 @@
-import { Doctor } from '../types/doctor';
+import { Doctor, DEFAULT_DOCTOR_SCHEDULE } from '../types/doctor';
 
 export const doctorsData: Doctor[] = [
   {
@@ -7,6 +7,7 @@ export const doctorsData: Doctor[] = [
     role: 'Medical Superintendent',
     qualifications: 'MBBS, MD (Path)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-meer-riyaz-ahmed',
@@ -14,6 +15,7 @@ export const doctorsData: Doctor[] = [
     role: 'General Medicine',
     qualifications: 'MBBS, NDB (Gen. Med)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-prashant-mali',
@@ -21,6 +23,7 @@ export const doctorsData: Doctor[] = [
     role: 'General Medicine',
     qualifications: 'MD MED',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-abdul-baseer',
@@ -28,6 +31,7 @@ export const doctorsData: Doctor[] = [
     role: 'General Surgery',
     qualifications: 'MBBS, DNB (Gen. Surg), FMAS, FIAGES, MNAMS',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-zaheeruddin-ather',
@@ -35,6 +39,7 @@ export const doctorsData: Doctor[] = [
     role: 'General Surgery',
     qualifications: 'MBBS, MS (Gen Surg)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-md-ali-r-patel',
@@ -42,6 +47,7 @@ export const doctorsData: Doctor[] = [
     role: 'Maxillofacial Surgeon',
     qualifications: 'BDS, MDS (OMF)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-mumtaz-shaik-inamdar',
@@ -49,6 +55,7 @@ export const doctorsData: Doctor[] = [
     role: 'Gynaecologist',
     qualifications: 'MS OBG',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-meeta-harwal',
@@ -56,6 +63,7 @@ export const doctorsData: Doctor[] = [
     role: 'Gynaecologist',
     qualifications: 'MS (Gyn)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-syeda-subiya-tanveer-ustad',
@@ -63,6 +71,7 @@ export const doctorsData: Doctor[] = [
     role: 'Gynaecologist',
     qualifications: 'MBBS, MS (Gyn)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-sachin',
@@ -70,6 +79,7 @@ export const doctorsData: Doctor[] = [
     role: 'Pediatrician',
     qualifications: 'MBBS, DNB (Peds)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-sb-sangolli',
@@ -77,6 +87,7 @@ export const doctorsData: Doctor[] = [
     role: 'Pediatrician',
     qualifications: 'MBBS, DCH, DNB (Peds)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-md-minhaj',
@@ -84,6 +95,7 @@ export const doctorsData: Doctor[] = [
     role: 'Neurosurgeon',
     qualifications: 'MBBS, MS MCH (Neuro Surgery)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-marthand-kulkarni',
@@ -91,6 +103,7 @@ export const doctorsData: Doctor[] = [
     role: 'Orthopaedic Surgeon',
     qualifications: 'MS Ortho',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-md-shafi',
@@ -98,6 +111,7 @@ export const doctorsData: Doctor[] = [
     role: 'ENT Specialist',
     qualifications: 'MS, ENT',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-ambresh-biradar',
@@ -105,6 +119,7 @@ export const doctorsData: Doctor[] = [
     role: 'Plastic Surgeon',
     qualifications: 'MS, M.Ch (Plastic & Reconstructive Surgery)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-md-furqan-inamdar',
@@ -113,6 +128,7 @@ export const doctorsData: Doctor[] = [
     qualifications: 'MD ANAE',
     image: 'dr-md-furqan.jpg',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-irfan-waris',
@@ -120,6 +136,7 @@ export const doctorsData: Doctor[] = [
     role: 'Anaesthesia',
     qualifications: 'MBBS, MD (ANAE)',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-tanveer-hussain-ustad',
@@ -127,6 +144,7 @@ export const doctorsData: Doctor[] = [
     role: 'Urologist',
     qualifications: 'MBBS, MS (Gensurg), FMAS, DNB Urology',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'dr-shoaib',
@@ -135,6 +153,7 @@ export const doctorsData: Doctor[] = [
     description: 'Doctor profile. Qualifications, specialty and consultation timings can be added after confirmation by the hospital.',
     image: 'dr-shoaib.jpeg',
     avatarType: 'doctor',
+    schedule: { ...DEFAULT_DOCTOR_SCHEDULE },
   },
   {
     id: 'syeda-ayesha-amjad',

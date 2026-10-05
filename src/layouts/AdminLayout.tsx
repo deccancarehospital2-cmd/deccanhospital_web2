@@ -12,12 +12,11 @@ import {
   X,
   ExternalLink,
   ShieldCheck,
-  UserCog,
 } from 'lucide-react';
 
 export const AdminLayout: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user, admin, isSuperAdmin, logout } = useAuth();
+  const { user, admin, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -92,17 +91,6 @@ export const AdminLayout: React.FC = () => {
       status: 'active',
       isUpcoming: false,
     },
-    ...(isSuperAdmin
-      ? [
-          {
-            name: 'Admin Management',
-            path: '/admin/admins',
-            icon: UserCog,
-            status: 'active',
-            isUpcoming: false,
-          },
-        ]
-      : []),
   ];
 
   return (
